@@ -32,7 +32,7 @@ public class Hamlet {
                    }
                        StringTokenizer objhamlet = new StringTokenizer(sTemp, "a");
                     if(sTemp.length() != 0){   
-                      if(objhamlet.countTokens() != 0 && sTemp.charAt(0) != 'a'){
+                      if(sTemp.charAt(0) != 'a'){
                        b = b + objhamlet.countTokens()-1;
                       }
                       if(sTemp.charAt(0) == 'a'){
