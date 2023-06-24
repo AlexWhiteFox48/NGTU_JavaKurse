@@ -4,11 +4,35 @@
  */
 package com.mycompany.calculator;
 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author DELL
  */
 public class NewJFrame extends javax.swing.JFrame {
+int a=0;
+boolean q = false;
+boolean w = false;
+String texthistory = "0";
+
+    
+
+
 
     /**
      * Creates new form NewJFrame
@@ -27,6 +51,23 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        ButtonPlus1 = new javax.swing.JButton();
+        ButtonPlus3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
+        jDialog2 = new javax.swing.JDialog();
+        jDialog3 = new javax.swing.JDialog();
+        jDialog4 = new javax.swing.JDialog();
+        jDialog5 = new javax.swing.JDialog();
+        jDialog6 = new javax.swing.JDialog();
+        jDialog7 = new javax.swing.JDialog();
+        jDialog8 = new javax.swing.JDialog();
+        jDialog9 = new javax.swing.JDialog();
+        jDialog10 = new javax.swing.JDialog();
+        jDialog11 = new javax.swing.JDialog();
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         ButtonOne = new javax.swing.JButton();
@@ -45,8 +86,173 @@ public class NewJFrame extends javax.swing.JFrame {
         ButtonMinus = new javax.swing.JButton();
         ButtonPoint1 = new javax.swing.JButton();
         ButtonPlus = new javax.swing.JButton();
-        ButtonDelete = new javax.swing.JButton();
+        ButtonAC = new javax.swing.JButton();
         ButtonAnswer = new javax.swing.JButton();
+        ButtonStepen = new javax.swing.JButton();
+        ButtonPlus4 = new javax.swing.JButton();
+        ButtonHistory = new javax.swing.JButton();
+        ButtonDelete = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
+
+        ButtonPlus1.setText("+");
+        ButtonPlus1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPlus1ActionPerformed(evt);
+            }
+        });
+
+        ButtonPlus3.setText("+");
+        ButtonPlus3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPlus3ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("jButton2");
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog3Layout = new javax.swing.GroupLayout(jDialog3.getContentPane());
+        jDialog3.getContentPane().setLayout(jDialog3Layout);
+        jDialog3Layout.setHorizontalGroup(
+            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog3Layout.setVerticalGroup(
+            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog4Layout = new javax.swing.GroupLayout(jDialog4.getContentPane());
+        jDialog4.getContentPane().setLayout(jDialog4Layout);
+        jDialog4Layout.setHorizontalGroup(
+            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog4Layout.setVerticalGroup(
+            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog5Layout = new javax.swing.GroupLayout(jDialog5.getContentPane());
+        jDialog5.getContentPane().setLayout(jDialog5Layout);
+        jDialog5Layout.setHorizontalGroup(
+            jDialog5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog5Layout.setVerticalGroup(
+            jDialog5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog6Layout = new javax.swing.GroupLayout(jDialog6.getContentPane());
+        jDialog6.getContentPane().setLayout(jDialog6Layout);
+        jDialog6Layout.setHorizontalGroup(
+            jDialog6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog6Layout.setVerticalGroup(
+            jDialog6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog7Layout = new javax.swing.GroupLayout(jDialog7.getContentPane());
+        jDialog7.getContentPane().setLayout(jDialog7Layout);
+        jDialog7Layout.setHorizontalGroup(
+            jDialog7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog7Layout.setVerticalGroup(
+            jDialog7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog8Layout = new javax.swing.GroupLayout(jDialog8.getContentPane());
+        jDialog8.getContentPane().setLayout(jDialog8Layout);
+        jDialog8Layout.setHorizontalGroup(
+            jDialog8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog8Layout.setVerticalGroup(
+            jDialog8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog9Layout = new javax.swing.GroupLayout(jDialog9.getContentPane());
+        jDialog9.getContentPane().setLayout(jDialog9Layout);
+        jDialog9Layout.setHorizontalGroup(
+            jDialog9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog9Layout.setVerticalGroup(
+            jDialog9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog10Layout = new javax.swing.GroupLayout(jDialog10.getContentPane());
+        jDialog10.getContentPane().setLayout(jDialog10Layout);
+        jDialog10Layout.setHorizontalGroup(
+            jDialog10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog10Layout.setVerticalGroup(
+            jDialog10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog11Layout = new javax.swing.GroupLayout(jDialog11.getContentPane());
+        jDialog11.getContentPane().setLayout(jDialog11Layout);
+        jDialog11Layout.setHorizontalGroup(
+            jDialog11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog11Layout.setVerticalGroup(
+            jDialog11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,10 +373,10 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        ButtonDelete.setText("Del");
-        ButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+        ButtonAC.setText("AC");
+        ButtonAC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonDeleteActionPerformed(evt);
+                ButtonACActionPerformed(evt);
             }
         });
 
@@ -181,15 +387,44 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        ButtonStepen.setText("x^(y)");
+        ButtonStepen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonStepenActionPerformed(evt);
+            }
+        });
+
+        ButtonPlus4.setText("√");
+        ButtonPlus4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPlus4ActionPerformed(evt);
+            }
+        });
+
+        ButtonHistory.setText("History");
+        ButtonHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonHistoryActionPerformed(evt);
+            }
+        });
+
+        ButtonDelete.setText("Delete");
+        ButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ButtonOne, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,19 +454,28 @@ public class NewJFrame extends javax.swing.JFrame {
                                         .addComponent(ButtonNine, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(ButtonEquals, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(ButtonMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonDevide, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ButtonHistory, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(ButtonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ButtonPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonAnswer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(16, 16, 16))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(ButtonMinus, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                                            .addComponent(ButtonMultiply, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(ButtonPlus, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                                            .addComponent(ButtonDevide, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ButtonStepen, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ButtonPlus4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ButtonAC, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,6 +489,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(ButtonOne, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonThree, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonAC, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -252,21 +497,24 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(ButtonFive, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonSix, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonStepen, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonSeven, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonEight, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonNine, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonDevide, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ButtonDevide, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonPlus4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonZero, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonEquals, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonPoint1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(ButtonAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -355,34 +603,77 @@ if ("0".equals(jLabel1.getText())){
     }//GEN-LAST:event_ButtonNineActionPerformed
 
     private void ButtonPoint1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPoint1ActionPerformed
-if ("0".equals(jLabel1.getText())){
-            jLabel1.setText(".");
+        String text1 = jLabel1.getText();
+          for (int i=0;i < text1.length() ;i++){
+                       if (text1.charAt(i) == '.'){
+                           a++;
+                       }
+                   }
+                    if (a < 1){
+                        jLabel1.setText(jLabel1.getText() + ".");
+                    }
+                    a = 0;
+       // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPoint1ActionPerformed
+    
+    private void ButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMinusActionPerformed
+    if ("0".equals(jLabel1.getText()) || "-".equals(jLabel1.getText())){
+            jLabel1.setText("-");
         }
         else {
-            jLabel1.setText(jLabel1.getText() + ".");
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonPoint1ActionPerformed
-
-    private void ButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMinusActionPerformed
-    oper1 = Double.parseDouble(jLabel1.getText());
-     jLabel1.setText("0");
-     deist=Deister.SUB;
+          if (q==false){
+        oper1 = Double.parseDouble(jLabel1.getText());
+        texthistory = jLabel1.getText() + " － ";
+        jLabel1.setText("0");
+        deist=Deister.SUB;
+                q = true;
+          }
+          else{
+                 jLabel2.setText("syntax error");
+                 jLabel1.setText( "0");
+         q = false;
+          }
+    }
+       w = false;
     }//GEN-LAST:event_ButtonMinusActionPerformed
 
     private void ButtonDevideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDevideActionPerformed
-     oper1 = Double.parseDouble(jLabel1.getText());
-     jLabel1.setText("0");
+         if (q==false){
+        oper1 = Double.parseDouble(jLabel1.getText());
+     texthistory = jLabel1.getText() + " / ";
+        jLabel1.setText("0");
      deist=Deister.DIVIDE;
+     
+     q = true;
+         }
+         else{
+             jLabel2.setText("syntax error");
+             jLabel1.setText( "0");
+         q = false;
+         }
+                w = false;
     }//GEN-LAST:event_ButtonDevideActionPerformed
 
-    private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
+    private void ButtonACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonACActionPerformed
        jLabel1.setText("0");
-    }//GEN-LAST:event_ButtonDeleteActionPerformed
+       jLabel2.setText(" ");
+              w = false;
+    }//GEN-LAST:event_ButtonACActionPerformed
 
     private void ButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPlusActionPerformed
+    if (q==false){
      oper1 = Double.parseDouble(jLabel1.getText());
+      texthistory = jLabel1.getText() + " + ";
      jLabel1.setText("0");
      deist=Deister.SUM;
+         q = true;
+    }
+    else{
+        jLabel2.setText("syntax error");
+        jLabel1.setText( "0");
+         q = false;
+    }
+           w = false;
     }//GEN-LAST:event_ButtonPlusActionPerformed
 
     private void ButtonZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonZeroActionPerformed
@@ -399,6 +690,7 @@ if ("0".equals(jLabel1.getText())){
     private void ButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEqualsActionPerformed
       try{
         if (Double.parseDouble(jLabel1.getText()) == 0 & deist==Deister.DIVIDE) throw new MyIskl();
+        if ("0".equals(texthistory)) throw new MyIskl1();
         jLabel2.setText("" + (deist.DeistM(oper1,Double.parseDouble(jLabel1.getText()))));
        /* switch (deist){
            case SUM: {
@@ -419,27 +711,139 @@ if ("0".equals(jLabel1.getText())){
            }
        }*/
        ANS = Double.parseDouble(jLabel2.getText());
+       try{
+         FileWriter writer = new FileWriter(("History.txt"), true);
+         String texthistoryfinal = "\n" + texthistory + jLabel1.getText() + " = " + jLabel2.getText();
+         writer.write(texthistoryfinal);
+         writer.flush();
+          } catch (IOException ex) { 
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } 
              }
        catch (MyIskl ex){
        jLabel2.setText("" + ex.getMessage());
     }
+        catch (MyIskl1 ex){
+       jLabel2.setText("" + ex.getMessage());
+    }
       jLabel1.setText( "0");
+      q=false;
+      texthistory = "0";
+      w = false;
     }//GEN-LAST:event_ButtonEqualsActionPerformed
 
     private void ButtonAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAnswerActionPerformed
-       if ("0".equals(jLabel1.getText())){
+     if(w == false){  
+         if ("0".equals(jLabel1.getText())){
             jLabel1.setText(""+ANS);
+            w = true;
         }
         else {
             jLabel1.setText(jLabel1.getText() + ANS);
+       w = true;
+       }
+     }
+
     }//GEN-LAST:event_ButtonAnswerActionPerformed
-    }
+    
     private void ButtonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMultiplyActionPerformed
-     oper1 = Double.parseDouble(jLabel1.getText());
-     jLabel1.setText("0");
+     if(q==false){
+        oper1 = Double.parseDouble(jLabel1.getText());
+      texthistory = jLabel1.getText() + " * ";
+        jLabel1.setText("0");
      deist=Deister.MULTI;
+         q = true;
+     }
+     else{
+         jLabel2.setText("syntax error");
+         jLabel1.setText( "0");
+         q = false;
+     }
+            w = false;
     }//GEN-LAST:event_ButtonMultiplyActionPerformed
 
+    private void ButtonPlus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPlus1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPlus1ActionPerformed
+
+    private void ButtonStepenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStepenActionPerformed
+   if(q==false){
+        oper1 = Double.parseDouble(jLabel1.getText());
+      texthistory = jLabel1.getText() + " ^ ";
+        jLabel1.setText("0");
+         deist=Deister.EXP;
+         q = true;
+     }
+     else{
+         jLabel2.setText("syntax error");
+         jLabel1.setText( "0");
+         q = false;
+     }
+          w = false;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonStepenActionPerformed
+
+    private void ButtonPlus3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPlus3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPlus3ActionPerformed
+
+    private void ButtonPlus4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPlus4ActionPerformed
+          try{
+        if (q==true) throw new MyIskl1();
+        jLabel2.setText("" + Math.sqrt(Double.parseDouble(jLabel1.getText())));
+       ANS = Double.parseDouble(jLabel2.getText());
+       try{
+         FileWriter writer = new FileWriter(("History.txt"), true);
+         String texthistoryfinal = "\n" + "√" + jLabel1.getText() + " = " + jLabel2.getText();
+         writer.write(texthistoryfinal);
+         writer.flush();
+          } catch (IOException ex) { 
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+             }
+        catch (MyIskl1 ex){
+       jLabel2.setText("" + ex.getMessage());
+    }
+      jLabel1.setText( "0");
+      q=false;
+      texthistory = "0";
+           w = false;
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPlus4ActionPerformed
+
+    private void ButtonHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonHistoryActionPerformed
+        JFrame History = new JFrame();
+        History.setVisible(true);
+        History.setTitle("History");
+        JTextArea label = new JTextArea();
+        History.getContentPane().add(label);
+        History.setPreferredSize(new Dimension(500, 1000));
+        History.pack();
+           try{
+        Path Loadpath = Paths.get("History.txt");
+        BufferedReader bfr = Files.newBufferedReader(Loadpath);
+        while(bfr.ready()){
+             label.setText(label.getText() + bfr.readLine() + "\n");
+        }
+        bfr.close();
+        } catch (IOException ex) { 
+        Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+    } 
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonHistoryActionPerformed
+
+    private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
+        String text = jLabel1.getText();
+        if ("0".equals(jLabel1.getText()) || text.length()== 1){
+            jLabel1.setText("0");
+        }
+        else {
+
+            String subtext = text.substring(0, text.length()-1);
+            jLabel1.setText(subtext);// TODO add your handling code here:
+    }//GEN-LAST:event_ButtonDeleteActionPerformed
+    }
     /**
      * @param args the command line arguments
      */
@@ -478,24 +882,49 @@ private double oper1 = 0;
 private double ANS = 0;
 private Deister deist = Deister.SUM;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonAC;
     private javax.swing.JButton ButtonAnswer;
     private javax.swing.JButton ButtonDelete;
     private javax.swing.JButton ButtonDevide;
     private javax.swing.JButton ButtonEight;
     private javax.swing.JButton ButtonFive;
     private javax.swing.JButton ButtonFour;
+    private javax.swing.JButton ButtonHistory;
     private javax.swing.JButton ButtonMinus;
     private javax.swing.JButton ButtonMultiply;
     private javax.swing.JButton ButtonNine;
     private javax.swing.JButton ButtonOne;
     private javax.swing.JButton ButtonPlus;
+    private javax.swing.JButton ButtonPlus1;
+    private javax.swing.JButton ButtonPlus3;
+    private javax.swing.JButton ButtonPlus4;
     private javax.swing.JButton ButtonPoint1;
     private javax.swing.JButton ButtonSeven;
     private javax.swing.JButton ButtonSix;
+    private javax.swing.JButton ButtonStepen;
     private javax.swing.JButton ButtonThree;
     private javax.swing.JButton ButtonTwo;
     private javax.swing.JButton ButtonZero;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog10;
+    private javax.swing.JDialog jDialog11;
+    private javax.swing.JDialog jDialog2;
+    private javax.swing.JDialog jDialog3;
+    private javax.swing.JDialog jDialog4;
+    private javax.swing.JDialog jDialog5;
+    private javax.swing.JDialog jDialog6;
+    private javax.swing.JDialog jDialog7;
+    private javax.swing.JDialog jDialog8;
+    private javax.swing.JDialog jDialog9;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+    private void log(Level SEVERE, Object object, IOException ex) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

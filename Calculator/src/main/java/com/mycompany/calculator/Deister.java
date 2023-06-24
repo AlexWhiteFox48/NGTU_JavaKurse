@@ -10,12 +10,12 @@ package com.mycompany.calculator;
  */
 
 public enum Deister {
-      SUM(1){
+       SUM(1){
         double DeistM(double arg1, double arg2){
         return arg1+arg2;
         }
     },
-    SUB(2){
+       SUB(2){
         double DeistM(double arg1, double arg2){
         return arg1-arg2;
         }
@@ -26,7 +26,13 @@ public enum Deister {
     }, DIVIDE(4){
          double DeistM(double arg1, double arg2) {
                    return arg1/arg2;
-        }          
+         }
+        }, EXP (5){
+         double DeistM(double arg1, double arg2) {
+                   return Math.pow(arg1, arg2);
+        }
+        
+    
 };
 
 double value;
