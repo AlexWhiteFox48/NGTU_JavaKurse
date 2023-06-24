@@ -150,10 +150,12 @@ public class NotepadFrame extends javax.swing.JFrame {
        try{
         if (LoadFileName.getText().equals("")) throw new Iskl1();
         Path Loadpath = Paths.get(LoadFileName.getText() + ".txt");
+        
         BufferedReader bfr = Files.newBufferedReader(Loadpath);
         while(bfr.ready()){
-             TextArea.setText( bfr.readLine());
+             TextArea.setText(TextArea.getText() + bfr.readLine() + "\n");
         }
+        
         bfr.close();
        } catch (Iskl1 ex) {
            Component ErrorWindow = null;
