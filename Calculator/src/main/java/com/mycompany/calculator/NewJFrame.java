@@ -634,7 +634,7 @@ if ("0".equals(jLabel1.getText())){
          q = false;
           }
     }
-       w = false;
+
     }//GEN-LAST:event_ButtonMinusActionPerformed
 
     private void ButtonDevideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDevideActionPerformed
@@ -651,13 +651,13 @@ if ("0".equals(jLabel1.getText())){
              jLabel1.setText( "0");
          q = false;
          }
-                w = false;
+
     }//GEN-LAST:event_ButtonDevideActionPerformed
 
     private void ButtonACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonACActionPerformed
        jLabel1.setText("0");
        jLabel2.setText(" ");
-              w = false;
+
     }//GEN-LAST:event_ButtonACActionPerformed
 
     private void ButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPlusActionPerformed
@@ -673,7 +673,7 @@ if ("0".equals(jLabel1.getText())){
         jLabel1.setText( "0");
          q = false;
     }
-           w = false;
+
     }//GEN-LAST:event_ButtonPlusActionPerformed
 
     private void ButtonZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonZeroActionPerformed
@@ -713,7 +713,7 @@ if ("0".equals(jLabel1.getText())){
        ANS = Double.parseDouble(jLabel2.getText());
        try{
          FileWriter writer = new FileWriter(("History.txt"), true);
-         String texthistoryfinal = "\n" + texthistory + jLabel1.getText() + " = " + jLabel2.getText();
+         String texthistoryfinal = texthistory + jLabel1.getText() + " = " + jLabel2.getText() + "\n";
          writer.write(texthistoryfinal);
          writer.flush();
           } catch (IOException ex) { 
@@ -729,20 +729,12 @@ if ("0".equals(jLabel1.getText())){
       jLabel1.setText( "0");
       q=false;
       texthistory = "0";
-      w = false;
+
     }//GEN-LAST:event_ButtonEqualsActionPerformed
 
     private void ButtonAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAnswerActionPerformed
-     if(w == false){  
-         if ("0".equals(jLabel1.getText())){
-            jLabel1.setText(""+ANS);
-            w = true;
-        }
-        else {
-            jLabel1.setText(jLabel1.getText() + ANS);
-       w = true;
-       }
-     }
+
+          jLabel1.setText(""+ANS);
 
     }//GEN-LAST:event_ButtonAnswerActionPerformed
     
@@ -759,7 +751,7 @@ if ("0".equals(jLabel1.getText())){
          jLabel1.setText( "0");
          q = false;
      }
-            w = false;
+
     }//GEN-LAST:event_ButtonMultiplyActionPerformed
 
     private void ButtonPlus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPlus1ActionPerformed
@@ -779,7 +771,7 @@ if ("0".equals(jLabel1.getText())){
          jLabel1.setText( "0");
          q = false;
      }
-          w = false;
+
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonStepenActionPerformed
 
@@ -794,7 +786,7 @@ if ("0".equals(jLabel1.getText())){
        ANS = Double.parseDouble(jLabel2.getText());
        try{
          FileWriter writer = new FileWriter(("History.txt"), true);
-         String texthistoryfinal = "\n" + "√" + jLabel1.getText() + " = " + jLabel2.getText();
+         String texthistoryfinal =  "√" + jLabel1.getText() + " = " + jLabel2.getText() + "\n";
          writer.write(texthistoryfinal);
          writer.flush();
           } catch (IOException ex) { 
