@@ -12,7 +12,7 @@ package com.mycompany.calculator;
 public class Calculator {
 
     public static void main(String[] args) {
-        NewJFrame NJF = new NewJFrame();
+        GUI NJF = new GUI();
         NJF.setVisible(true);
         NJF.setTitle("Calculator");
     }
